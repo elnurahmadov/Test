@@ -5,7 +5,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 @Entity
-public class PasswordResetToekn {
+public class PasswordResetToken {
     @Transient
     private final int EXPIRY_DATE = 60 * 24;
     @Id
@@ -19,11 +19,11 @@ public class PasswordResetToekn {
     @Temporal(TemporalType.TIMESTAMP)
     private Date expiryDate;
 
-    public PasswordResetToekn() {
+    public PasswordResetToken() {
         this.expiryDate = calculateExpiryDate(EXPIRY_DATE);
     }
 
-    private PasswordResetToekn(String token, User user) {
+    private PasswordResetToken(String token, User user) {
         this.user = user;
         this.token = token;
         this.expiryDate = calculateExpiryDate(EXPIRY_DATE);
@@ -75,9 +75,9 @@ public class PasswordResetToekn {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof PasswordResetToekn)) return false;
+        if (!(o instanceof PasswordResetToken)) return false;
 
-        PasswordResetToekn that = (PasswordResetToekn) o;
+        PasswordResetToken that = (PasswordResetToken) o;
 
         return getId() != null ? getId().equals(that.getId()) : that.getId() == null;
     }
