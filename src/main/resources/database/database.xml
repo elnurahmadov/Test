@@ -30,7 +30,7 @@
         <property name="maxIdleTime" value="2500"></property>
     </bean>
 
-    <!--    Spring Hibernate Integration-->
+    <!--    Spring Hibernate Integration -->
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="comboPooledDataSource"></property>
         <property name="jpaVendorAdapter">
