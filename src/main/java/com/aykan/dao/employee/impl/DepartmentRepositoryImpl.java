@@ -11,8 +11,8 @@ import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Repository
-@Transactional()
-public class DepartmentRepostoryImpl implements DepartmentRepository {
+@Transactional(rollbackFor = {RuntimeException.class, Throwable.class})
+public class DepartmentRepositoryImpl implements DepartmentRepository {
     @PersistenceContext
     private EntityManager entityManager;
 

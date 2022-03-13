@@ -7,7 +7,8 @@ import java.util.Date;
 @NamedQueries({
         @NamedQuery(name = "Employee.findAll", query = "select e from Employee e"),
         @NamedQuery(name = "Employee.findFullById", query = "select e from Employee e left outer join fetch e.job left outer join fetch e.department where e.employeeId =:employeeId"),
-        @NamedQuery(name = "Employee.count", query = "select count(e) from Employee e")
+        @NamedQuery(name = "Employee.count", query = "select count(e) from Employee e"),
+        @NamedQuery(name = "Employee.betweenSalary", query = "select e from Employee e where e.salary > :minSalary and e.salary < :maxSalary")
 })
 public class Employee {
     @Id

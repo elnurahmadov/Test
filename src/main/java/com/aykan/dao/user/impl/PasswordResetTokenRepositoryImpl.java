@@ -35,13 +35,12 @@ public class PasswordResetTokenRepositoryImpl implements PasswordResetTokenRepos
             entityManager.remove(passwordResetToken);
             return passwordResetToken;
         }
-        PasswordResetToken prt = findPasswordResetTokenFindById(passwordResetToken.getId());
-        entityManager.remove(prt);
-        return prt;
+        PasswordResetToken deletePasswordResetToken = findPasswordResetTokenFindById(passwordResetToken.getId());
+        entityManager.refresh(deletePasswordResetToken);
+        return deletePasswordResetToken;
     }
 
     @Override
-    @Transactional(readOnly = true)
     public PasswordResetToken findPasswordResetTokenByToken(String token) {
         TypedQuery<PasswordResetToken> typedQuery = entityManager.createNamedQuery("PasswordResetToken.findByToken", PasswordResetToken.class);
         typedQuery.setParameter("token", token);
@@ -49,7 +48,6 @@ public class PasswordResetTokenRepositoryImpl implements PasswordResetTokenRepos
     }
 
     @Override
-    @Transactional(readOnly = true)
     public PasswordResetToken findPasswordResetTokenByUser(User user) {
         TypedQuery<PasswordResetToken> typedQuery = entityManager.createNamedQuery("PasswordResetToken.findByUserId", PasswordResetToken.class);
         typedQuery.setParameter("userId", user.getId());
