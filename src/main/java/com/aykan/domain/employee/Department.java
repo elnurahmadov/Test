@@ -4,6 +4,12 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "Department.findAll", query = "SELECT  d from Department d"),
+        @NamedQuery(name = "Department.findByDepartmentName", query = "select d.departmentName from Department d"),
+        @NamedQuery(name = "Department.findLocationAndEmployeesByDepartmentId", query = "select  d from Department  d left outer join fetch d.location "
+                + "left outer join fetch d.employees where d.departmentId = :departmentId")
+})
 public class Department {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
