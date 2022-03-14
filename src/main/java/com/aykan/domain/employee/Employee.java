@@ -2,7 +2,7 @@ package com.aykan.domain.employee;
 
 import javax.persistence.*;
 import java.util.Date;
-
+//Querise added
 @Entity
 @NamedQueries({
         @NamedQuery(name = "Employee.findAll", query = "select e from Employee e"),
