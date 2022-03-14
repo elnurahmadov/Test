@@ -2,7 +2,7 @@ package com.aykan.domain.employee;
 
 import javax.persistence.*;
 import java.util.List;
-//Queries added
+
 @Entity
 @NamedQueries({
         @NamedQuery(name = "Department.findAll", query = "SELECT  d from Department d"),
