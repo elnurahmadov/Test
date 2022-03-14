@@ -40,6 +40,7 @@ public class UserRepositoryImpl implements UserRepository{
 
     @Override
     public User findUserById(Long id) {
+
         return entityManager.find(User.class, id);
     }
 

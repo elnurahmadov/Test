@@ -3,6 +3,12 @@ package com.aykan.domain.user;
 import javax.persistence.*;
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "User.findAll", query = "select u from User u"),
+        @NamedQuery(name = "User.findByEmail", query = "select u from User u left outer join fetch u.role where u.email =:email"),
+        @NamedQuery(name = "User.findByUsername", query = "select u from User u left outer join fetch u.role where u.username =:username"),
+        @NamedQuery(name = "User.findById", query = "select u from User u left outer join fetch u.role where u.id =:id")
+})
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

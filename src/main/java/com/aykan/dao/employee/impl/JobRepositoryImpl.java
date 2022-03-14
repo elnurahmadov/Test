@@ -34,8 +34,7 @@ public class JobRepositoryImpl implements JobRepository {
 
     @Override
     public Job updateJob(Job job) {
-        Job updateJob = entityManager.merge(job);
-        return updateJob;
+        return entityManager.merge(job);
     }
 
     @Override

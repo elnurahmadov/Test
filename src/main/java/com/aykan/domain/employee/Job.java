@@ -6,7 +6,7 @@ import java.util.List;
 @Entity
 @NamedQueries({
         @NamedQuery(name = "Job.findAll", query = "select j from Job j"),
-        @NamedQuery(name = "Job.findAllByJobTitle", query = "select j from Job j where j.jobTitle =:jobTitle"),
+        @NamedQuery(name = "Job.findJobTitles", query = "select j from Job j where j.jobTitle =:jobTitle"),
         @NamedQuery(name = "Job.findEmployeesById", query = "select j from Job j left outer join fetch j.employees where j.jobId =:jobId")
 })
 public class Job {

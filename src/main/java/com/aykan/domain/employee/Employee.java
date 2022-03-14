@@ -6,7 +6,8 @@ import java.util.Date;
 @Entity
 @NamedQueries({
         @NamedQuery(name = "Employee.findAll", query = "select e from Employee e"),
-        @NamedQuery(name = "Employee.findFullById", query = "select e from Employee e left outer join fetch e.job left outer join fetch e.department where e.employeeId =:employeeId"),
+        @NamedQuery(name = "Employee.findFullById", query = "select e from Employee e left outer join fetch e.department" +
+                " left outer join fetch e.job where e.employeeId = :employeeId"),
         @NamedQuery(name = "Employee.count", query = "select count(e) from Employee e"),
         @NamedQuery(name = "Employee.betweenSalary", query = "select e from Employee e where e.salary > :minSalary and e.salary < :maxSalary")
 })
@@ -21,6 +22,8 @@ public class Employee {
     @Column
     private String email;
     @Column
+    private Long salary;
+    @Column
     private String phoneNumber;
     @Temporal(TemporalType.DATE)
     private Date hireDate;
@@ -31,17 +34,19 @@ public class Employee {
     @JoinColumn(name = "department_id", foreignKey = @ForeignKey(foreignKeyDefinition = "department_fk"))
     private Department department;
 
-    public Employee() {
-    }
-
-    public Employee(String firstName, String lastName, String email, String phoneNumber, Date hireDate, Job job, Department department) {
+    public Employee(String firstName, String lastName, String email, Long salary, String phoneNumber, Date hireDate, Job job, Department department) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.salary = salary;
         this.phoneNumber = phoneNumber;
         this.hireDate = hireDate;
         this.job = job;
         this.department = department;
+    }
+
+    public Employee() {
+
     }
 
     public Long getEmployeeId() {
@@ -50,6 +55,14 @@ public class Employee {
 
     public void setEmployeeId(Long employeeId) {
         this.employeeId = employeeId;
+    }
+
+    public Long getSalary() {
+        return salary;
+    }
+
+    public void setSalary(Long salary) {
+        this.salary = salary;
     }
 
     public String getFirstName() {

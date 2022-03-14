@@ -34,8 +34,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 
     @Override
     public Employee updateEmployee(Employee employee) {
-        Employee updatedEmployee = entityManager.merge(employee);
-        return updatedEmployee;
+        return entityManager.merge(employee);
     }
 
     @Override
@@ -67,9 +66,9 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 
     @Override
     public List<Employee> findEmployeesFirstMax(int first, int max) {
-        return entityManager.createNamedQuery(("Employee.findAll", Employee.class))
-        .setFirstResult(first)
-                .setMaxResult(max)
+        return entityManager.createNamedQuery("Employee.findAll", Employee.class)
+                .setFirstResult(first)
+                .setMaxResults(max)
                 .getResultList();
     }
 }

@@ -4,6 +4,10 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "Privilege.findByName", query = "select p from Privilege p left outer join fetch p.name where p.name =:privilegeName"),
+        @NamedQuery(name = "Privilege.findAllPrivileges", query = "select p from Privilege p")
+})
 public class Privilege {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

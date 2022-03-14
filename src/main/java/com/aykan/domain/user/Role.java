@@ -4,6 +4,11 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "Role.findAll", query = "select r from Role r"),
+        @NamedQuery(name = "Role.findById", query = "select r from User r left outer join fetch r.role where r.id =:id"),
+        @NamedQuery(name = "Role.findByName", query = "select r from User r left outer join fetch r.role where r.username =:username")
+})
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

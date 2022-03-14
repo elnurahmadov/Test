@@ -9,8 +9,8 @@ import java.util.Date;
 @NamedQueries({
         @NamedQuery(name = "PasswordResetToken.findByToken", query = "select p from PasswordResetToken  p where p.token = :token"),
         @NamedQuery(name = "PasswordResetToken.findByUserId", query = "select p from PasswordResetToken p where p.user.id = :userId"),
-        @NamedQuery(name = "PasswordResetToken.deleteExpiryDateToken", query = "delete from PasswordResetToken p where p.expiryDate,= :date"),
-        @NamedQuery(name = "PasswordResetToken.findAllByExpiryDateLessThan", query = "select p from PasswordResetToken p where p.expiryDate ,= :expiryDate")
+        @NamedQuery(name = "PasswordResetToken.deleteExpiryDateToken", query = "delete from PasswordResetToken p where p.expiryDate = :date"),
+        @NamedQuery(name = "PasswordResetToken.findAllByExpiryDateLessThan", query = "select p from PasswordResetToken p where p.expiryDate = :expiryDate")
 })
 public class PasswordResetToken {
     @Transient
