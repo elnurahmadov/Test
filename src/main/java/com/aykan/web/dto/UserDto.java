@@ -2,6 +2,7 @@ package com.aykan.web.dto;
 
 import com.aykan.validation.PasswordMatches;
 import com.aykan.validation.ValidEmail;
+import com.aykan.validation.ValidPassword;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -15,6 +16,7 @@ public class UserDto {
     private String username;
     @ValidEmail
     private String email;
+    @ValidPassword
     private String password;
     private String matchingPassword;
 

@@ -8,7 +8,7 @@ import java.lang.annotation.*;
         ElementType.TYPE, ElementType.ANNOTATION_TYPE, ElementType.FIELD
 })
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = EmailValidator.class)
+@Constraint(validatedBy = PasswordMatchesValidator.class)
 @Documented
 public @interface PasswordMatches {
 
