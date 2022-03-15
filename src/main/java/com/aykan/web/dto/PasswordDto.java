@@ -5,9 +5,12 @@ import com.aykan.validation.ValidPassword;
 
 @PasswordMatches
 public class PasswordDto {
+
     private String oldPassword;
+
     @ValidPassword
     private String newPassword;
+
     private String matchingNewPassword;
 
     public String getOldPassword() {
