@@ -10,6 +10,7 @@ import java.util.List;
 
 @Service
 public class JobServiceImpl implements JobService {
+
     @Autowired
     private JobRepository jobRepository;
 
