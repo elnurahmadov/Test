@@ -4,7 +4,7 @@ import com.aykan.domain.user.User;
 import com.aykan.web.dto.UserDto;
 
 import java.util.List;
-
+//service for repository
 public interface UserService {
     User registerNewUser(UserDto userDto);
 
