@@ -8,9 +8,9 @@ import java.util.Date;
 @Table(name = "VerificationToken")
 @NamedQueries({
         @NamedQuery(name = "VerificationToken.findByToken", query = "select v from VerificationToken v where v.token = :token"),
-        @NamedQuery(name = "VerificationToken.findByUserId", query = "select v from VerificationToken v left outer join fetch v.user.id where v.id =:userId"),
-        @NamedQuery(name = "VerificationToken.findAllExpiryDateLessThan", query = "select v from VerificationToken v where v.expiryDate = :expiryDate"),
-        @NamedQuery(name = "VerificationToken.deleteExpiryDateToken", query = "delete from VerificationToken v where v.expiryDate = :date")
+        @NamedQuery(name = "VerificationToken.findByUserId", query = "select v from VerificationToken v where v.user.id =:userId"),
+        @NamedQuery(name = "VerificationToken.findAllExpiryDateLessThan", query = "select v from VerificationToken v where v.expiryDate <= :expiryDate"),
+        @NamedQuery(name = "VerificationToken.deleteExpiryDateToken", query = "delete from VerificationToken v where v.expiryDate <= :date")
 })
 public class VerificationToken {
     @Transient

@@ -7,6 +7,8 @@ import java.util.Date;
 import java.util.List;
 
 public interface VerificationTokenService {
+    String validateVerificationToken(String token);
+
     VerificationToken saveVerificationToken(VerificationToken verificationToken);
 
     VerificationToken updateVerificationToken(VerificationToken verificationToken);
