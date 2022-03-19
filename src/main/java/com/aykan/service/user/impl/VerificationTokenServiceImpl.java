@@ -38,39 +38,38 @@ public class VerificationTokenServiceImpl implements VerificationTokenService {
         return TOKEN_VALID;
     }
 
-
     @Override
     public VerificationToken saveVerificationToken(VerificationToken verificationToken) {
-        return null;
+        return verificationTokenRepository.saveVerificationToken(verificationToken);
     }
 
     @Override
     public VerificationToken updateVerificationToken(VerificationToken verificationToken) {
-        return null;
+        return verificationTokenRepository.updateVerificationToken(verificationToken);
     }
 
     @Override
     public VerificationToken deleteVerificationToken(VerificationToken verificationToken) {
-        return null;
+        return verificationTokenRepository.deleteVerificationToken(verificationToken);
     }
 
     @Override
     public VerificationToken findVerificationTokenByToken(String token) {
-        return null;
+        return verificationTokenRepository.findVerificationTokenByToken(token);
     }
 
     @Override
     public VerificationToken findVerificationTokenByUser(User user) {
-        return null;
+        return verificationTokenRepository.findVerificationTokenByUser(user);
     }
 
     @Override
     public List<VerificationToken> findAllExpiryDateLessThan(Date date) {
-        return null;
+        return verificationTokenRepository.findAllExpiryDateLessThan(date);
     }
 
     @Override
     public boolean deleteAllExpiredSince(Date date) {
-        return false;
+        return verificationTokenRepository.deleteAllExpiredSince(date);
     }
 }
